@@ -23,9 +23,9 @@
    <div class="col-sm-12">
      <div id="slider"></div>
      <span style="margin-left:0%;margin-top:1rem;">0</span>
-     <span style="margin-left:22%;margin-top:1rem;">25M</span>
-      <span style="margin-left:23%;margin-top:1rem;">50M</span>
-      <span style="margin-left:23%;margin-top:1rem;">75M</span>
+     <span style="margin-left:21%;margin-top:1rem;">250M</span>
+      <span style="margin-left:22%;margin-top:1rem;">500M</span>
+      <span style="margin-left:23%;margin-top:1rem;">750M</span>
       <span style="margin-left:18.5%;margin-top:1rem;">1B</span>
    </div>
  </div>
@@ -59,14 +59,23 @@
  <input type="hidden" id="amount" class="form-control">
  <input type="hidden" id="duration" class="form-control">
  <input type="hidden" id="text" class="form-control">
+ <!-- FOR CALCULATION -->
+ <input type="hidden" id="amount1" class="form-control">
+ <input type="hidden" id="duration1" class="form-control">
+ <!-- <input type="hidden" id="text" class="form-control"> -->
 
-             <div class="form-group total" >
-               <label for="total" class="col-sm-6 control-label"><strong>Total ($): </strong></label>
-               <div class="col-sm-6">
-                 <input type="hidden" id="total" class="form-control">
-                 <p class="price lead" id="total-label" style="color: #9DC347; padding-top: 7px;font-size: 30px;font-weight: 700;"></p>
-               </div>
-             </div>
+   <div class="form-group total" >
+     <label for="total" class="col-sm-6 control-label"><strong>Total ($): </strong></label>
+     <div class="col-sm-6">
+       <input type="hidden" id="total" class="form-control">
+       <p class="price lead" id="total-label" style="color: #9DC347; padding-top: 7px;font-size: 30px;font-weight: 700;"></p>
+     </div>
+   </div>
+
+   <span class="text-center" style="color:#2EA2ED">
+    <h1 style="font-size: 50px;font-weight:700;">$</h1><br>
+    <p style="font-size: 34px;font-weight:700;line-height: 0;">Represents 5 years of compounding client retention</p>
+  </span>
  
 
  </div>
@@ -94,7 +103,7 @@ btn.addEventListener('click', () => {
            value:0,
            min: 1,
            max: 1000000000,
-           step: 2500,
+           step: 128440267,
            slide: function(event, ui) {
                update(1,ui.value); //changed
            }
@@ -105,7 +114,7 @@ btn.addEventListener('click', () => {
            value:0,
            min: 1,
            max: 400000000,
-           step: 2500,
+           step: 64587156,
            slide: function(event, ui) {
                update(2,ui.value); //changed
            }
@@ -129,6 +138,9 @@ btn.addEventListener('click', () => {
        $("#amount-label").text(0);
        $("#duration-label").text(0);
        $("#text-label").text(0);
+// FOR CALCULATION
+       $("#amount1").val(0);
+       $("#duration1").val(0);
 
      
        update();
@@ -139,11 +151,23 @@ btn.addEventListener('click', () => {
      var $duration = slider == 2?val:$("#duration").val();
      var $text = slider == 3?val:$("#text").val();
 
-      $first = ($text/100) * ($amount) + $duration;
-      $second = ($first * ($text/100)) + $duration;
-      $third = ($second * ($text/100)) + $duration;
-      $fourth = ($third * ($text/100)) + $duration;
-      $fifth = ($fourth * ($text/100)) + $duration;
+      // var a = '1,125'
+      // a=a.replace(/\,/g,'')
+      // a=Number(a)
+      
+      // var $amount1 = $amount.replace(/\,/g,'');
+      // var $duration1 = $duration.replace(/\,/g,'');
+
+      var $amount1 = slider == 1?val:$("#amount1").val();
+      var $duration1 = slider == 2?val:$("#duration1").val();
+      // var $text = slider == 3?val:$("#text").val();
+
+
+      $first = ($text/100) * ($amount1) + $duration1;
+      $second = ($first * ($text/100)) + $duration1;
+      $third = ($second * ($text/100)) + $duration1;
+      $fourth = ($third * ($text/100)) + $duration1;
+      $fifth = ($fourth * ($text/100)) + $duration1;
 
 
       $lost1 = $first * (($text/100) - 1) ;
@@ -154,7 +178,8 @@ btn.addEventListener('click', () => {
 
       $finalLost = ($lost1+$lost2+$lost3+$lost4+$lost5);
 
-      $qqq = $finalLost.toLocaleString('en-US');
+      // $qqq = $finalLost.toLocaleString('en-US');
+      $qqq = $finalLost.toLocaleString(undefined,{maximumFractionDigits:2});
 
 
       $total = $qqq;
@@ -162,9 +187,13 @@ btn.addEventListener('click', () => {
       $xxx = $amount.toLocaleString('en-US');
       $yyy = $duration.toLocaleString('en-US');
 
-      $( "#amount" ).val($amount);
+      // num.toLocaleString('en', {useGrouping:true})
+      $("#amount1").val($amount1);
+      $("#duration1").val($duration1); 
+
+      $( "#amount" ).val($xxx);
       $( "#amount-label" ).text($xxx);
-      $( "#duration" ).val($duration);
+      $( "#duration" ).val($yyy);
       $( "#duration-label" ).text($yyy);
       $( "#text" ).val($text);
       $( "#text-label" ).text($text);
