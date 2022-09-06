@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <met a charset="UTF-8">
- <met a http-equiv="X-UA-Compatible" content="IE=edge">
- <met a name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
- <link rel="stylesheet" type="text/css" href="css/progress6.css">
- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
-<div class="container">
-<div class="price-box">
 
+<<<<<<< HEAD
 <button id="btn" class="btn btn-primary py-4">Calculate</button>
 
 <form class="form-horizontal form-pricing" role="form">
@@ -208,3 +194,5 @@ btn.addEventListener('click', () => {
 </script>
 </body>
 </html>
+=======
+>>>>>>> a2530746a66aaa1cbcab0f2f9aa2fd0e60085dc1
