@@ -1,18 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" type="text/css" href="css/progress6.css">
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<<<<<<< HEAD
-<button id="btn" class="btn btn-primary py-4">Calculate</button>
+</head>
+<body>
+<div class="container">
+<div class="price-box">
+
+<!-- <button id="btn" class="btn btn-primary py-4">Calculate</button> -->
 
 <form class="form-horizontal form-pricing" role="form">
  <div class="price-slider">
    <h4 class="great"> Annual Revenue ($)</h4>
     <span><p class="price lead" id="amount-label"></p></span>
    <div class="col-sm-12">
+    <!-- <input type="range" class="w-100" id="" min="0" max="100"> -->
      <div id="slider"></div>
-     <span style="margin-left:0%;margin-top:1rem;">0</span>
-     <span style="margin-left:21%;margin-top:1rem;">250M</span>
-      <span style="margin-left:22%;margin-top:1rem;">500M</span>
-      <span style="margin-left:23%;margin-top:1rem;">750M</span>
-      <span style="margin-left:18.5%;margin-top:1rem;">1B</span>
+     <span class="hid" style="margin-left:0%;margin-top:1rem;">0</span>
+     <span class="hid" style="margin-left:21%;margin-top:1rem;">250M</span>
+      <span class="hid" style="margin-left:22%;margin-top:1rem;">500M</span>
+      <span class="hid" style="margin-left:23%;margin-top:1rem;">750M</span>
+      <span class="hid" style="margin-left:18.5%;margin-top:1rem;">1B</span>
+
    </div>
  </div>
  <div class="price-slider">
@@ -20,11 +37,11 @@
     <span><p class="price lead" id="duration-label"></p></span>
    <div class="col-sm-12">
      <div id="slider2"></div>
-     <span style="margin-left:0%;margin-top:1rem;">0</span>
-     <span style="margin-left:21%;margin-top:1rem;">100M</span>
-      <span style="margin-left:22%;margin-top:1rem;">200M</span>
-      <span style="margin-left:22%;margin-top:1rem;">300M</span>
-      <span style="margin-left:18.5%;margin-top:1rem;">400M</span>
+     <span class="hid" style="margin-left:0%;margin-top:1rem;">0</span>
+     <span class="hid" style="margin-left:21%;margin-top:1rem;">100M</span>
+      <span class="hid" style="margin-left:22%;margin-top:1rem;">200M</span>
+      <span class="hid" style="margin-left:22%;margin-top:1rem;">300M</span>
+      <span class="hid" style="margin-left:18.5%;margin-top:1rem;">400M</span>
    </div>
  </div>
  <div class="price-slider">
@@ -32,11 +49,11 @@
     <span><p class="price lead" id="text-label">%</p></span>
    <div class="col-sm-12">
      <div id="slider3"></div>
-     <span style="margin-left:0%;margin-top:1rem;">0</span>
-     <span style="margin-left:22%;margin-top:1rem;">25</span>
-    <span style="margin-left:23%;margin-top:1rem;">50</span>
-    <span style="margin-left:23%;margin-top:1rem;">75</span>
-    <span style="margin-left:22%;margin-top:1rem;">100</span>
+     <span class="hid" style="margin-left:0%;margin-top:1rem;">0</span>
+     <span class="hid" style="margin-left:22%;margin-top:1rem;">25</span>
+    <span class="hid" style="margin-left:23%;margin-top:1rem;">50</span>
+    <span class="hid" style="margin-left:23%;margin-top:1rem;">75</span>
+    <span class="hid" style="margin-left:22%;margin-top:1rem;">100</span>
    </div>
  </div>
  
@@ -68,6 +85,7 @@
 </form>
 </div>
 </div>
+
 <script>
 const btn = document.getElementById('btn');
 btn.addEventListener('click', () => {
@@ -82,6 +100,7 @@ btn.addEventListener('click', () => {
 
 </script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="jquery-ui-touch-punch-min.js"></script>
 <script>
  $(document).ready(function() {
        $("#slider").slider({
@@ -89,7 +108,7 @@ btn.addEventListener('click', () => {
            value:0,
            min: 1,
            max: 1000000000,
-           step: 128440267,
+           step: 100,
            slide: function(event, ui) {
                update(1,ui.value); //changed
            }
@@ -194,5 +213,3 @@ btn.addEventListener('click', () => {
 </script>
 </body>
 </html>
-=======
->>>>>>> a2530746a66aaa1cbcab0f2f9aa2fd0e60085dc1
